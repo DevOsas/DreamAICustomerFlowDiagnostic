@@ -74,6 +74,18 @@
         display: none;
       }
 
+      .brand-logo-text {
+        display: none;
+      }
+
+      .brand-logo.is-broken img {
+        display: none;
+      }
+
+      .brand-logo.is-broken .brand-logo-text {
+        display: inline-flex;
+      }
+
       @media (max-width: 1023px) {
         .framework-step::after {
           display: none;
@@ -85,8 +97,9 @@
   <body class="font-sans text-ink antialiased">
     <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/92 backdrop-blur">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <a href="#top" class="flex items-center gap-3" aria-label="Dream AI Sales Engine">
-          <img src="assets/icons/dream-ai-sales-engine-logo.png" alt="Dream AI Sales Engine" class="h-12 w-auto max-w-[260px]" />
+        <a href="#top" class="brand-logo flex items-center gap-3" aria-label="Dream AI Sales Engine">
+          <img data-brand-logo src="/assets/icons/dream-ai-sales-engine-logo.png?v=20260604" alt="Dream AI Sales Engine" class="h-12 w-auto max-w-[260px]" />
+          <span class="brand-logo-text text-lg font-bold text-ink">Dream AI Sales Engine</span>
         </a>
         <a
           href="#diagnostic"
@@ -334,8 +347,9 @@
 
     <footer class="bg-[#09071F] px-5 py-8 text-sm text-white/70">
       <div class="mx-auto flex max-w-6xl flex-col justify-between gap-5 md:flex-row md:items-center">
-        <div>
-          <img src="assets/icons/dream-ai-sales-engine-logo.png" alt="Dream AI Sales Engine" class="h-12 w-auto max-w-[260px]" />
+        <div class="brand-logo">
+          <img data-brand-logo src="/assets/icons/dream-ai-sales-engine-logo.png?v=20260604" alt="Dream AI Sales Engine" class="h-12 w-auto max-w-[260px]" />
+          <span class="brand-logo-text text-lg font-bold text-white">Dream AI Sales Engine</span>
           <p class="mt-3 max-w-xl">AI agents that prospect, follow up, book calls, and close deals - 24/7.</p>
         </div>
         <div class="flex flex-col gap-3 text-white md:items-end">
@@ -350,6 +364,20 @@
     </a>
 
     <script>
+      document.querySelectorAll("[data-brand-logo]").forEach((logo) => {
+        const basePath = window.location.pathname.startsWith("/customerflowdiagnostic") ? "/customerflowdiagnostic" : "";
+        const fallbackSrc = `${basePath}/assets/icons/dream-ai-sales-engine-logo.png?v=20260604`;
+        logo.addEventListener("error", () => {
+          const wrapper = logo.closest(".brand-logo");
+          if (logo.src.endsWith(fallbackSrc)) {
+            wrapper?.classList.add("is-broken");
+            return;
+          }
+          logo.src = fallbackSrc;
+        });
+        logo.addEventListener("load", () => logo.closest(".brand-logo")?.classList.remove("is-broken"));
+      });
+
       const questions = [
         {
           id: "lead_source",

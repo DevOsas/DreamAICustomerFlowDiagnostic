@@ -33,12 +33,28 @@
         }
       };
     </script>
+    <style>
+      .brand-logo-text {
+        display: none;
+      }
+
+      .brand-logo.is-broken img {
+        display: none;
+      }
+
+      .brand-logo.is-broken .brand-logo-text {
+        display: inline-flex;
+      }
+    </style>
   </head>
   <body class="bg-softwhite font-sans text-ink">
     <main class="min-h-screen bg-[#09071F] px-5 py-10 text-white">
       <section class="mx-auto grid min-h-[calc(100vh-5rem)] max-w-6xl items-center gap-10 md:grid-cols-[1fr_.85fr]">
         <div>
-          <img src="assets/icons/dream-ai-sales-engine-logo.png" alt="Dream AI Sales Engine" class="mb-8 h-14 w-auto max-w-[280px]" />
+          <div class="brand-logo mb-8">
+            <img data-brand-logo src="/assets/icons/dream-ai-sales-engine-logo.png?v=20260604" alt="Dream AI Sales Engine" class="h-14 w-auto max-w-[280px]" />
+            <span class="brand-logo-text text-lg font-bold text-white">Dream AI Sales Engine</span>
+          </div>
           <p class="mb-5 inline-flex rounded-md border border-cyan/40 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-cyan">
             AI Pipeline Score Ready
           </p>
@@ -102,6 +118,20 @@
       </section>
     </main>
     <script>
+      document.querySelectorAll("[data-brand-logo]").forEach((logo) => {
+        const basePath = window.location.pathname.startsWith("/customerflowdiagnostic") ? "/customerflowdiagnostic" : "";
+        const fallbackSrc = `${basePath}/assets/icons/dream-ai-sales-engine-logo.png?v=20260604`;
+        logo.addEventListener("error", () => {
+          const wrapper = logo.closest(".brand-logo");
+          if (logo.src.endsWith(fallbackSrc)) {
+            wrapper?.classList.add("is-broken");
+            return;
+          }
+          logo.src = fallbackSrc;
+        });
+        logo.addEventListener("load", () => logo.closest(".brand-logo")?.classList.remove("is-broken"));
+      });
+
       function getStoredResult() {
         try {
           return JSON.parse(localStorage.getItem("dreamAiPipelineResult") || "null");
