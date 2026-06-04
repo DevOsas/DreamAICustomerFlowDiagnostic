@@ -19,6 +19,9 @@ http
     const url = new URL(req.url, `http://127.0.0.1:${port}`);
     let pathname = decodeURIComponent(url.pathname);
     if (pathname === "/") pathname = "/index.html";
+    if (pathname === "/favicon.ico" || pathname === "/favicon.png") {
+      pathname = "/assets/icons/dream-ai-favicon.png";
+    }
 
     if (pathname === "/api/config") {
       res.writeHead(200, { "Content-Type": "application/json" });

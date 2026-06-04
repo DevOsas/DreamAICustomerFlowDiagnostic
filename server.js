@@ -36,6 +36,9 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 app.get(["/health", "/api/health", "/:base/health", "/:base/api/health"], health);
+app.get(["/favicon.ico", "/:base/favicon.ico", "/favicon.png", "/:base/favicon.png"], (_req, res) => {
+  res.sendFile(path.join(rootDir, "assets", "icons", "dream-ai-favicon.png"));
+});
 
 app.get(["/api/config", "/:base/api/config"], withBasePath(configHandler));
 app.post(["/api/submit", "/:base/api/submit", "/api/calculate", "/:base/api/calculate"], withBasePath(submitHandler));
