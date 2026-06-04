@@ -22,6 +22,7 @@ http
     if (pathname === "/favicon.ico" || pathname === "/favicon.png") {
       pathname = "/assets/icons/dream-ai-favicon.png";
     }
+    pathname = pathname.replace(/^\/[^/]+\/assets\//, "/assets/");
 
     if (pathname === "/api/config") {
       res.writeHead(200, { "Content-Type": "application/json" });

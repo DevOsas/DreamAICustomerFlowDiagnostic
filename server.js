@@ -43,6 +43,11 @@ app.get(["/favicon.ico", "/:base/favicon.ico", "/favicon.png", "/:base/favicon.p
 app.get(["/api/config", "/:base/api/config"], withBasePath(configHandler));
 app.post(["/api/submit", "/:base/api/submit", "/api/calculate", "/:base/api/calculate"], withBasePath(submitHandler));
 
+app.use((req, _res, next) => {
+  req.url = req.url.replace(/^\/[^/]+\/assets\//, "/assets/");
+  next();
+});
+
 const passengerBasePath = normalizeBasePath(process.env.PASSENGER_BASE_URI);
 if (passengerBasePath) {
   app.use(passengerBasePath, express.static(rootDir));
@@ -51,6 +56,7 @@ app.use(express.static(rootDir));
 
 app.get("/:base", (req, res, next) => {
   if (req.params.base.includes(".")) return next();
+  if (req.path.endsWith("/")) return next();
   return res.redirect(301, `/${req.params.base}/`);
 });
 
