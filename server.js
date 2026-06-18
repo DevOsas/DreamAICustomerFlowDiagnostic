@@ -1,8 +1,6 @@
 const express = require("express");
 const path = require("path");
 
-require("./lib/load-env");
-
 const submitHandler = require("./api/submit");
 const configHandler = require("./api/config");
 
@@ -39,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get(["/health", "/api/health", "/:base/health", "/:base/api/health"], health);
 app.get(["/favicon.ico", "/:base/favicon.ico", "/favicon.png", "/:base/favicon.png"], (_req, res) => {
-  res.sendFile(path.join(rootDir, "assets", "icons", "infinity-think-favicon.png"));
+  res.sendFile(path.join(rootDir, "assets", "icons", "dream-ai-favicon.png"));
 });
 
 app.get(["/api/config", "/:base/api/config"], withBasePath(configHandler));

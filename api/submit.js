@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
-require("../lib/load-env");
 const { calculateScore, QUESTIONS } = require("../lib/scoring");
 const { generateDiagnosticPdf } = require("../lib/pdf");
 const { sendProspectReport, sendAdminNotification } = require("../lib/email");
@@ -95,7 +94,7 @@ module.exports = async function handler(req, res) {
     const score = calculateScore(sanitizedAnswers);
     const bookingLink = process.env.BOOKING_LINK || "https://yourbookinglink.com";
     const basePath = req.appBasePath || process.env.PASSENGER_BASE_URI || "";
-    const redirectUrl = buildAppUrl(basePath, "result.html");
+    const redirectUrl = process.env.RESULT_PAGE_URL || buildAppUrl(basePath, "result.html");
     const submittedAt = new Date().toISOString();
     let reportDeliveryStatus = "skipped";
     try {

@@ -20,7 +20,7 @@ http
     let pathname = decodeURIComponent(url.pathname);
     if (pathname === "/") pathname = "/index.html";
     if (pathname === "/favicon.ico" || pathname === "/favicon.png") {
-      pathname = "/assets/icons/infinity-think-favicon.png";
+      pathname = "/assets/icons/dream-ai-favicon.png";
     }
     pathname = pathname.replace(/^\/[^/]+\/assets\//, "/assets/");
 

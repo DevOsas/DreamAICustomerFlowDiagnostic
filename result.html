@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your AI Revenue Score | Infinity Think</title>
+    <title>Your AI Sales Pipeline Score | Dream AI Sales Engine</title>
     <meta
       name="description"
-      content="Review your AI Revenue Score and book a free Infinity Think AI Revenue Audit to get your full action plan."
+      content="Review your AI Sales Pipeline Score and book a free Dream AI Sales Audit to get your full action plan."
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/infinity-think-favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/dream-ai-favicon.png" />
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/infinity-think-apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/dream-ai-apple-touch-icon.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script>
@@ -18,16 +18,16 @@
         theme: {
           extend: {
             colors: {
-              ink: "#151024",
-              navy: "#2B1949",
-              cyan: "#C5B2E4",
-              blue: "#8D5EEA",
-              violet: "#6F42C1",
-              mist: "#F2ECFF",
-              softwhite: "#F8F5FF"
+              ink: "#09071F",
+              navy: "#131044",
+              cyan: "#00D9FF",
+              blue: "#006BFF",
+              violet: "#7C2DFF",
+              mist: "#EEF4FF",
+              softwhite: "#F7FAFF"
             },
             boxShadow: {
-              premium: "0 24px 70px rgba(111, 66, 193, 0.18)"
+              premium: "0 24px 70px rgba(0, 107, 255, 0.16)"
             }
           }
         }
@@ -48,26 +48,26 @@
     </style>
   </head>
   <body class="bg-softwhite font-sans text-ink">
-    <main class="min-h-screen bg-[#151024] px-5 py-10 text-white">
+    <main class="min-h-screen bg-[#09071F] px-5 py-10 text-white">
       <section class="mx-auto grid min-h-[calc(100vh-5rem)] max-w-6xl items-center gap-10 md:grid-cols-[1fr_.85fr]">
         <div>
           <div class="brand-logo mb-8">
-            <img data-brand-logo src="/assets/icons/infinity-think-logo.png?v=20260618" alt="Infinity Think" class="h-14 w-auto max-w-[260px]" />
-            <span class="brand-logo-text text-lg font-bold text-white">Infinity Think</span>
+            <img data-brand-logo src="/assets/icons/dream-ai-sales-engine-logo.png?v=20260604" alt="Dream AI Sales Engine" class="h-14 w-auto max-w-[280px]" />
+            <span class="brand-logo-text text-lg font-bold text-white">Dream AI Sales Engine</span>
           </div>
           <p class="mb-5 inline-flex rounded-md border border-cyan/40 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-cyan">
-            AI Revenue Score Ready
+            AI Pipeline Score Ready
           </p>
           <h1 id="scoreHeadline" class="text-4xl font-bold leading-tight md:text-6xl">
-            Your AI Revenue Score Is Ready
+            Your AI Readiness Score Is Ready
           </h1>
           <p id="scoreSummary" class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Your answers show where your sales pipeline may be losing leads, bookings, and revenue. The next step is to map which AI revenue workflows should be deployed first.
+            Your answers show where your sales pipeline may be losing leads, bookings, and revenue. The next step is to map which AI agents should be deployed first.
           </p>
           <div class="mt-8 rounded-md border border-white/10 bg-white/8 p-6">
-            <h2 class="text-2xl font-bold text-cyan">Book Your Free AI Revenue Audit</h2>
+            <h2 class="text-2xl font-bold text-cyan">Book Your Free AI Sales Audit</h2>
             <p class="mt-4 leading-7 text-slate-300">
-              On this free Infinity Think AI Revenue Audit, we'll review your score, identify the biggest leak in your pipeline, and show you the first AI workflows to deploy for faster response, follow-up, booking, and revenue recovery.
+              On this free Dream AI Sales Audit, we'll review your score, identify the biggest leak in your pipeline, and show you the first AI agents to deploy for faster response, follow-up, booking, and revenue recovery.
             </p>
             <div class="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
@@ -75,7 +75,7 @@
                 href="../landingpage1/index.html#book"
                 class="inline-flex items-center justify-center gap-2 rounded-md bg-cyan px-6 py-4 text-sm font-bold text-ink transition hover:bg-white"
               >
-                Book Your Free AI Revenue Audit to Get Your Full Action Plan
+                Book Your Free AI Sales Audit to Get Your Full Action Plan
                 <i data-lucide="calendar-check" class="h-4 w-4"></i>
               </a>
               <button
@@ -98,7 +98,7 @@
             <div class="rounded-md bg-mist px-4 py-3 text-sm font-bold text-blue" id="resultLevel">AI Pipeline Review</div>
           </div>
           <div>
-            <h2 class="text-xl font-bold">Recommended AI Workflows</h2>
+            <h2 class="text-xl font-bold">Recommended AI Agents</h2>
             <div id="recommendationList" class="mt-4 space-y-3">
               <div class="flex gap-3 rounded-md border border-slate-200 p-4">
                 <i data-lucide="message-circle-reply" class="h-5 w-5 text-blue"></i>
@@ -120,7 +120,7 @@
     <script>
       document.querySelectorAll("[data-brand-logo]").forEach((logo) => {
         const basePath = window.location.pathname.startsWith("/customerflowdiagnostic") ? "/customerflowdiagnostic" : "";
-        const fallbackSrc = `${basePath}/assets/icons/infinity-think-logo.png?v=20260618`;
+        const fallbackSrc = `${basePath}/assets/icons/dream-ai-sales-engine-logo.png?v=20260604`;
         logo.addEventListener("error", () => {
           const wrapper = logo.closest(".brand-logo");
           if (logo.src.endsWith(fallbackSrc)) {
@@ -134,7 +134,7 @@
 
       function getStoredResult() {
         try {
-          return JSON.parse(localStorage.getItem("infinityThinkPipelineResult") || "null");
+          return JSON.parse(localStorage.getItem("dreamAiPipelineResult") || "null");
         } catch (error) {
           return null;
         }
@@ -155,7 +155,7 @@
         if (!result) return;
 
         const score = Number(result.score_percentage || 0);
-        const level = result.result_level || "AI Revenue Review";
+        const level = result.result_level || "AI Pipeline Review";
         const riskArea = result.biggest_risk_area || "Follow-Up";
         const fixes = Array.isArray(result.recommended_fixes) ? result.recommended_fixes : [];
 
@@ -196,7 +196,7 @@
       document.getElementById("shareBtn").addEventListener("click", async () => {
         const text = document.getElementById("scoreHeadline").textContent;
         if (navigator.share) {
-          await navigator.share({ title: "My AI Revenue Score", text, url: window.location.href });
+          await navigator.share({ title: "My AI Sales Pipeline Score", text, url: window.location.href });
           return;
         }
         await navigator.clipboard.writeText(`${text} ${window.location.href}`);
