@@ -34,7 +34,6 @@ Optional but recommended:
 
 - `ADMIN_EMAIL`
 - `BOOKING_LINK`
-- `RESULT_PAGE_URL`
 - `ZAPIER_WEBHOOK_URL`
 
 ## Deploy To Vercel
@@ -92,16 +91,6 @@ ZAPIER_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/...
 ```
 
 If Zapier fails, the user flow continues and the error is logged.
-
-## Change Redirect Result Page URL
-
-By default, successful submissions redirect to `/result.html`.
-
-To send users to an external result or offer page, set:
-
-```env
-RESULT_PAGE_URL=https://yourdomain.com/customer-flow-result
-```
 
 ## Change Booking Link
 
